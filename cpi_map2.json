@@ -1,0 +1,39 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 950,
+    "height": 500,
+    "title": "Countries and their respective percentage of the populationn able to access clean drinking water",
+    "projection": {"type": "equalEarth"},
+    "layer": [
+    {
+        "data": {
+        "url":
+        "https://raw.githubusercontent.com/rcso123/FIT3179DV2/main/ne_110m.json",
+        "format": {"type": "topojson", "feature":
+        "ne_110m_admin_0_countries"}
+    },
+    "mark": {"type": "geoshape", "fill": "lightblue", "stroke":
+    "white"}
+    },
+    {
+    "data": {
+    "url":
+    "https://raw.githubusercontent.com/rcso123/FIT3179DV2/main/water_index.csv"
+    },
+    "mark": {"type": "circle", "tooltip": {"content": "CPI Score"}},
+    "encoding": {
+            "longitude": {"field": "Longitude", "type":"quantitative"},
+            "latitude": {"field": "Latitude ", "type":"quantitative"},
+        "size": {
+            "field": "Water ",
+            "type": "quantitative",
+            "title": "Access to Clean Water(%)",
+            "scale": {"domain": [0, 100]}
+        }
+    
+    }
+    }
+]
+}
+
+    
