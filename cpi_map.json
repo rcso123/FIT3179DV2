@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 1000,
+    "width": "container",
     "height": 500,
     "title": "Countries and their respective CPI Scores",
     "projection": {"type": "equalEarth"},
@@ -20,7 +20,7 @@
     "url":
     "https://raw.githubusercontent.com/rcso123/FIT3179DV2/main/CPI%20Index.csv"
     },
-    "mark": {"type": "circle", "tooltip": {"content": "CPI Score"}},
+    "mark": {"type": "circle"},
     "encoding": {
             "longitude": {"field": "Longitude", "type":"quantitative"},
             "latitude": {"field": "Latitude", "type":"quantitative"},
@@ -29,11 +29,16 @@
             "type": "quantitative",
             "title": "CPI Score",
             "scale": {"domain": [0, 100]}
-        }
+        },
+        "tooltip":[
+            {"field":"Country", "type": "nominal"},
+            {"field": "CPI Score", "type": "quantitative"}
+        ]
     
     }
     }
 ]
 }
+
 
     
