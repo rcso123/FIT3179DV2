@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 1000,
+    "width": "container",
     "height": 400,
     "title": { "text": "The Corruption Perception (CPI) Score in Country" },
     "data": {
@@ -8,12 +8,16 @@
         "https://raw.githubusercontent.com/rcso123/FIT3179DV2/main/cpi_short.csv"
 
     },
-    "mark": "bar",
+    "mark": "circle",
     "encoding": {
         "x": { "field": "Country ", "type": "nominal"},
         "y": { "field": "CPI Score", "type": "quantitative"},
-        "xOffset": {"field": "Water Access "},
-        "tooltip": {"field": "CPI Score", "type": "quantitative"}
+        "size": {"field": "Water Access", "type":"quantitative"},
+        "tooltip": [
+            {"field":"Country ", "type": "nominal"},
+            {"field": "CPI Score", "type": "quantitative"},
+            {"field": "Water Access", "type": "quantitative"}
+        ]
     }
 }
 
