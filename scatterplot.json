@@ -1,0 +1,67 @@
+  {
+    "width": "container",
+    "height": 500,
+    "data": {
+      "url": "https://raw.githubusercontent.com/rcso123/FIT3179DV2/main/all_values_data.csv"
+    },
+    "layer": [
+      {
+        "mark": {
+          "type": "point",
+          "filled": true
+        },
+        "encoding": {
+          "x": {
+            "field": "CPI Score",
+            "type": "quantitative"
+          },
+          "y": {
+            "field": "Water ",
+            "type": "quantitative"
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "line",
+          "color": "firebrick"
+        },
+        "transform": [
+          {
+            "regression": "Water ",
+            "on": "CPI Score"
+          }
+        ],
+        "encoding": {
+          "x": {
+            "field": "CPI Score",
+            "type": "quantitative"
+          },
+          "y": {
+            "field": "Water ",
+            "type": "quantitative"
+          }
+        }
+      },
+      {
+        "transform": [
+          {
+            "regression": "Water ",
+            "on": "CPI Score",
+            "params": true
+          },
+          {"calculate": "'R²: '+format(datum.rSquared, '.2f')", "as": "R2"}
+        ],
+        "mark": {
+          "type": "text",
+          "color": "firebrick",
+          "x": "width",
+          "align": "right",
+          "y": -5
+        },
+        "encoding": {
+          "text": {"type": "nominal", "field": "R2"}
+        }
+      }
+    ]
+  }
